@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Convertidor</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+    </head>
+    <body class="text-center">
+        <div class="container" style="justify-content: center">
+            <header class="masthead mb-auto">
+                <div>
+                    <h1 class="masthead-brand">Convertidor de temperatura</h1>
+                    <h5>Esta aplicación permite hacer la conversión de grados tanto de Celsius a Fahrenheit como de Fahrenheit a Celsius.</h5>
+                    <h5>Se debe seleccionar el tipo de grados a los que quiere hacer la conversión.</h5>
+                </div>
+            </header>
+            
+            <main role="main" class="inner cover">
+                <div>
+                    <h4>Ingrese los grados</h4>
+                    <input id="grados">
+                    <h4>Seleccione el tipo de grados</h4>                
+                    <select id="tipoGrados" >
+                        <option value="C">°C</option>
+                        <option value="F">°F</option>
+                    </select>
+                    <button onclick="ConvertidorControllerModule.getConversionTempetatura()">Convertir</button>
+                    <br><br>
+                </div>
+                <div id="resultado"></div>
+            </main>
+        </div>
+        <!--JavaScript-->
+        <script src="js/ConvertidorController.js"></script>
+        <script src="js/ConvertidorRestController.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </body>
+</html>
