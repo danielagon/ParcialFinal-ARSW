@@ -28,7 +28,7 @@ public class APIController {
     private ConvertidorTemperatura convertidor;
     
     @RequestMapping(method = RequestMethod.GET, value = "/{grados}/{tipo}")
-    public ResponseEntity<?> getTemperatura(@PathVariable float grados, @PathVariable String tipo){
+    public ResponseEntity<?> getTemperatura(@PathVariable double grados, @PathVariable String tipo){
         try{
             return new ResponseEntity<>(convertidor.getConversionTemperatura(grados, tipo), HttpStatus.ACCEPTED);
         }catch (Exception ex){

@@ -10,15 +10,20 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  *
- * @author 2109734
+ * @author 2109734  
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 public class ApplicationServicesTest {
+    
+    @LocalServerPort
+    private int port;
     
     @Autowired
     private ConvertidorTemperatura convertidor;
@@ -29,16 +34,13 @@ public class ApplicationServicesTest {
     }
     
     @Test
-    public void convertirCelsiusaFahrenheit(){
+    public void convertidorTest(){
         double resultado = convertidor.getConversionTemperatura(10, "F");
         double resultadoEsperado = 50;
-        org.junit.Assert.assertEquals(resultado, resultadoEsperado, 0);
-    }
-    
-    @Test
-    public void convertirFahrenheitaCelsius(){
-        double resultado = convertidor.getConversionTemperatura(50, "C");
-        double resultadoEsperado = 10;
-        org.junit.Assert.assertEquals(resultado, resultadoEsperado, 0);
+        org.junit.Assert.assertEquals(resultado, resultadoEsperado, 0); 
+        
+        double resultado2 = convertidor.getConversionTemperatura(50, "C");
+        double resultadoEsperado2 = 10;
+        org.junit.Assert.assertEquals(resultado2, resultadoEsperado2, 0);
     }
 }
